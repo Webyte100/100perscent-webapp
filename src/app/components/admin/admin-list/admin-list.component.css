@@ -1,0 +1,18 @@
+/**This CSS File describes the style of the admin-list component
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+**/
+
+img {
+    height: 80px;
+    margin: auto;
+    display: block;
+}
+
+.div {
+    height: 10vh;
+    background-color: whitesmoke;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}

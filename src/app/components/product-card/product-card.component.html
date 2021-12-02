@@ -1,0 +1,15 @@
+<!-- This HTML file describes product  details with images,ratings,price
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+-->
+
+<div class="card product-card-container">
+    <div class="card product-card" (click)="specification()">
+        <p>{{product.name}}</p>
+        <img class="product-img" src="{{product.images[0]}}" alt="product image">
+        <p>
+            <app-rating [rating]="product.starRating"></app-rating>
+        </p>
+        <p>{{product.price | currency: 'INR'}}</p>
+    </div>
+</div>

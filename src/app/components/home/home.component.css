@@ -1,0 +1,305 @@
+/**This CSS File describes the style of the home component
+* @author Varsha Vaitla, Surya Alapati
+* @version 12.0.2
+**/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Start Banner Section */
+
+.carousel-item img {
+    width: 100vw;
+    height: 85vh;
+    object-fit: cover;
+    background-blend-mode: darken;
+    background: rgba(0, 0, 0, 0.5) no-repeat center center fixed;
+    background-size: 100% 100%;
+    background-blend-mode: darken;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.text-banner-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.text-banner-subtitle,
+.text-banner-title {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-banner-title {
+    text-transform: uppercase;
+    color: #3e4152;
+    letter-spacing: .15em;
+    font-size: 1.8em;
+    margin: 50px 0 10px 30px;
+    max-height: 5em;
+    font-weight: 500;
+}
+
+.text-banner-subtitle {
+    margin-top: 0;
+    font-weight: 400;
+    line-height: 1em;
+    max-height: 3em;
+    color: #7e818c;
+    margin-bottom: 50px;
+}
+
+
+/*Ends Banner Section*/
+
+
+/*Starts Trend Section*/
+
+.trending-img {
+    width: 215px;
+}
+
+.trend {
+    margin-right: 14px;
+    margin-left: 14px;
+}
+
+.trend .trending {
+    margin-left: 33px;
+    margin-right: 33px;
+}
+
+.trend .trending h3 {
+    padding-top: 18px;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trending h2 {
+    padding-top: 12px;
+    font-size: 13px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trending .btn {
+    margin-top: 18px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #001526;
+    padding: 5px 71px;
+    position: relative;
+    font-weight: bolder;
+}
+
+.trending .btn a {
+    color: white;
+}
+
+
+/*Ends Trend SEction */
+
+
+/*Starts Deal Section*/
+
+.deal-img {
+    margin-left: 43px;
+    width: 90%;
+    height: 60vh;
+}
+
+.deal-para {
+    margin-left: 15%;
+}
+
+.deal-para h5,
+.deal-para h6 {
+    margin-top: 2%;
+}
+
+.deal-para h5 {
+    color: black;
+    font-size: 0.9rem;
+}
+
+.deal-para h4 {
+    margin-top: 2%;
+    font-size: 1.25rem;
+}
+
+.deal-para .btn {
+    background-color: #001526;
+    color: white;
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 2.5%;
+}
+
+.deal-para .btn a {
+    color: white;
+    font-weight: 500;
+}
+
+.icons {
+    margin-top: 1%;
+}
+
+
+/*Ends deal section*/
+
+
+/*Starts section fourth*/
+
+.fourth {
+    height: 30vh;
+    color: black;
+}
+
+
+/*starts Discover trend SEction*/
+
+.fifth .container {
+    width: 100vw;
+    min-height: 500px;
+    background: #fff;
+    margin: 35px 60px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.fifth .container .box {
+    position: relative;
+    width: 280px;
+    height: 240px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 60px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.fifth .container .box .imgbox {
+    width: 280px;
+    height: 240px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.fifth .container .box .imgbox img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 2s;
+}
+
+.fifth .container .box:hover .imgbox img {
+    transform: scale(1.2);
+}
+
+.fifth .container .box .detailbox {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    transition: transform .5s;
+    transform: scaleY(0);
+}
+
+
+/*.fifth .container .box:hover .detailbox{
+   transform: scaleY(1);
+   
+}*/
+
+.fifth .container .box .detailbox .content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 15px;
+    color: #fff;
+}
+
+.fifth .container .box .detailbox .content h2 {
+    margin: 10px 0 0;
+    padding: 0;
+    font-size: 20px;
+    color: #ff0;
+}
+
+.text {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 17px;
+}
+
+.text a {
+    color: black;
+}
+
+
+/*Ends Discover trend SEction*/
+
+
+/*starts Brand SEction*/
+
+.brand1,
+.brand2,
+.brand3,
+.brand4,
+.brand6,
+.brand5 {
+    width: 120px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-left: 100px;
+    margin-right: auto;
+    -webkit-filter: grayscale(100%);
+    /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+
+/*Ends Brand Section */
+
+@media (max-width: 550px) {
+    .text-banner-title {
+        font-size: 0.8rem;
+        margin-left: 73px;
+    }
+    .trend {
+        margin-left: 23px;
+        margin-right: 26px;
+    }
+    .trending .btn {
+        margin-bottom: 13px;
+    }
+    .deal-para h3 {
+        font-size: 1rem;
+    }
+    .deal-para h5 {
+        font-size: 0.7rem;
+    }
+    .deal-para h6 {
+        font-size: 0.8rem;
+    }
+    .deal-para .btn {
+        padding-left: 73px;
+        padding-right: 73px;
+    }
+}

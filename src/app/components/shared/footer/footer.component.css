@@ -1,0 +1,20 @@
+/**This CSS File style the footer of page
+* @author Varsh Vaitla, Surya Alapati
+* @version 12.0.2
+**/
+
+.text-deco{
+    text-decoration: none;
+}
+
+.text-color{
+    color: whitesmoke;
+}
+
+.text-color:hover{
+    color: orange;
+}
+
+.bg-customcolor{
+    background: #001526;
+}

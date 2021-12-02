@@ -1,0 +1,256 @@
+<!--This HTML file describes the address feild save and  add new address &validate the invaild address
+ @author S.Swetha, Shruti Sunil Mayekar 
+ @version 12.0.2
+-->
+
+<div>
+	<div *ngFor="let addr of address, index as i">
+		<div *ngIf="address.length">
+			<div class="baseBlock" (click)="selectAddress(addr)" [ngClass]="{'selected': this.selectedId == addr.id}">
+				<div class="innerBlock">
+					<div class="defaultTitle"  *ngIf="addr.isDefault">DEFAULT ADDRESS</div>
+					<div class="defaultTitle"  *ngIf="!addr.isDefault">OTHER ADDRESS</div>
+					<div class="d-flex" [ngClass]="{'justify-content-center': center}">
+						<i class="bi bi-person-circle px-1"></i>
+						<div class="px-1 customerName">{{ addr.name }}</div>
+						<div class="addressType">{{ addr.type | uppercase }}</div>
+					</div>
+					<div>
+						<div class="address">{{ addr.address }}, {{ addr.city }}</div>
+						<span>{{ addr.state }}, {{ addr.country }}</span>
+						<span class="p-2">- {{ addr.pincode }}</span>
+						<div class="contact">
+							<span>Mobile: </span>
+							<span>{{ addr.phoneNo }}</span>
+						</div>
+						<button type="button" class="btn btn-outline-dark btn-sm mb-3 mr-4" data-toggle="modal"
+							[attr.data-target]="'#edit-address-form' + i" (click)="onEdit(i)">EDIT</button>
+						<button type="button" class="btn btn-outline-dark btn-sm mb-3" 
+							(click)="removeAddress(i)">REMOVE</button>
+					</div>
+				</div>
+			</div>
+			
+			<!-- edit address modal  -->
+			<div class="modal fade edit-address-modal" data-backdrop="static" id="edit-address-form{{i}}">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+
+						<!-- modal header -->
+						<div class="modal-header">
+							<h5 class="modal-title modal-heading">EDIT ADDRESS</h5>
+							<button type="button" class="close" data-dismiss="modal" (click)=refresh()>
+								<span><i class="bi bi-x" aria-hidden="true"></i></span>
+							</button>
+						</div>
+
+						<!-- modal body -->
+						<div class="modal-body">
+
+							<form class="address-form was-validated" #form="ngForm">
+								<div class="form-heading">
+									CONTACT DETAILS
+								</div>
+								<div class="form-group">
+									<label class="form-field">Name</label>
+									<input type="name" class="form-control form-control-input is-valid" name="userName" [(ngModel)]="editAddr.name" pattern="[a-zA-Z\s']+"
+										/>
+									<div *ngIf="name.invalid" class="invalid-feedback">
+										Invalid name
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="form-field">Mobile No</label>
+									<input type="tel" class="form-control form-control-input is-valid" name="phoneNo" #phoneNo=ngModel [(ngModel)]="editAddr.phoneNo" required pattern="[0-9]{10}"/>
+									<div *ngIf="phoneNo.invalid" class="invalid-feedback">
+										Invalid mobile number
+									</div>
+								</div>
+
+								<div class="form-heading">
+									ADDRESS
+								</div>
+
+								<div class="form-group">
+									<label class="form-field">Pincode</label>
+									<input type="text" class="form-control form-control-input is-valid" name="pincode" #pincode=ngModel [(ngModel)]="editAddr.pincode" required pattern="^[1-9][0-9]{5}$"/>
+									<div *ngIf="pincode.invalid" class="invalid-feedback">
+										Invalid pincode
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="form-field">Address(House No, Building, Street, Area)</label>
+									<input type="text" class="form-control form-control-input is-valid" name="address" #adrs=ngModel [(ngModel)]="editAddr.address" required pattern="[0-9a-zA-Z\s,\-]+"/>
+									<div *ngIf="adrs.invalid" class="invalid-feedback">
+										Invalid address
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="form-field">City</label>
+									<input type="text" class="form-control form-control-input is-valid" name="city" #city=ngModel [(ngModel)]="editAddr.city" required pattern="[a-zA-Z\s]+"/>
+									<div *ngIf="city.invalid" class="invalid-feedback">
+										Invalid city
+									</div>  
+								</div>
+
+								<div class="form-group">
+									<label class="form-field">State</label>
+									<input type="text" class="form-control form-control-input is-valid" name="state" #state=ngModel [(ngModel)]="editAddr.state" required pattern="[a-zA-Z\s,\-&]+"/>
+									<div *ngIf="state.dirty && state.invalid" class="invalid-feedback">
+										Invalid state
+									</div> 
+								</div>
+
+								<div class="form-group">
+									<label class="form-field">Country</label>
+									<input type="text" class="form-control form-control-input is-valid" name="country" #country=ngModel [(ngModel)]="editAddr.country" required pattern="[a-zA-Z\s]+"/>
+									<div *ngIf="country.dirty && country.invalid" class="invalid-feedback">
+										Invalid country
+									</div>  
+								</div>
+
+								<div class="form-heading">
+									SAVE ADDRESS AS
+								</div>
+								<div>
+									<input type="radio" id="home" name="addresstype" value="home" [(ngModel)]="editAddr.type"/>
+									<label for="home" class="px-2">HOME</label><br>
+									<input type="radio" id="work" name="addresstype" value="work" [(ngModel)]="editAddr.type"/>
+									<label for="work" class="px-2">WORK</label><br>
+									<hr class="line" />
+								</div>
+								<div>
+									<input type="checkbox" id="default" name="defaultaddress" value="default" (change)="isChecked($event, editAddr)"/>
+									<label for="default" class="px-2">Make this my default address</label><br>
+								</div>
+								<div>
+									<button type="button" (click)="updateAddress(i)" class="btn-check-save" [disabled]="!form.valid" data-dismiss="modal">SAVE ADDRESS</button>
+								</div>
+
+							</form>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="lead text-danger" *ngIf="!address.length">
+		<p>You have no saved addresses for now.</p>
+	</div>
+    <div class="newAddress mb-3" data-toggle="modal" data-target="#new-address-form">
+        <div>+ Add New Address</div>
+    </div>
+
+    <!--new address modal-->
+    <div class="modal fade new-address-modal" data-backdrop="static" id="new-address-form">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- modal header -->
+                <div class="modal-header">
+                    <h5 class="modal-title modal-heading">ADD NEW ADDRESS</h5>
+                    <button type="button" class="close" data-dismiss="modal" (click)="refresh()">
+                        <span><i class="bi bi-x" aria-hidden="true"></i></span>
+                    </button>
+                </div>
+
+                <!-- modal body -->
+                <div class="modal-body">
+
+                    <form class="address-form was-validated" #frm="ngForm">
+                        <div class="form-heading">
+                            CONTACT DETAILS
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-placeholder form-field">Name</label>
+                            <input type="name" class="form-control is-valid" name="userName" #name=ngModel [(ngModel)]="addr.name" required pattern="[a-zA-Z\s']{3,}"/>
+                            <div *ngIf="name.dirty && name.invalid" class="invalid-feedback">
+                                Invalid name
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-control-placeholder form-field">Mobile No</label>
+                            <input type="tel" class="form-control is-valid" name="phoneNo" #phoneNo=ngModel [(ngModel)]="addr.phoneNo" required pattern="[0-9]{10}"/>
+                            <div *ngIf="phoneNo.dirty && phoneNo.invalid" class="invalid-feedback">
+                                Invalid mobile number
+                            </div>
+                        </div>
+                        
+                        <div class="form-heading">
+                            ADDRESS
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-placeholder form-field">Pincode</label>
+                            <input type="text" class="form-control is-valid" name="pincode" #pincode=ngModel [(ngModel)]="addr.pincode" required pattern="^[1-9][0-9]{5}$"/>
+                            <div *ngIf="pincode.dirty && pincode.invalid" class="invalid-feedback">
+                                Invalid pincode
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-control-placeholder form-field">Address(House No, Building, Street,
+                                Area)</label>
+                            <input type="text" class="form-control is-valid" name="address" #adrs=ngModel [(ngModel)]="addr.address" required pattern="[0-9a-zA-Z\s,\-]+"/>
+                            <div *ngIf="adrs.dirty && adrs.invalid" class="invalid-feedback">
+                                Invalid address
+                            </div>                              
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-control-placeholder form-field">City</label>
+                            <input type="text" class="form-control is-valid" name="city" #city=ngModel [(ngModel)]="addr.city" required pattern="[a-zA-Z0-9\s]+"/>
+                            <div *ngIf="city.dirty && city.invalid" class="invalid-feedback">
+                                Invalid city
+                            </div>  
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-control-placeholder form-field">State</label>
+                            <input type="text" class="form-control is-valid" name="state" #state=ngModel [(ngModel)]="addr.state" required pattern="[a-zA-Z\s,\-&]+"/>
+                            <div *ngIf="state.dirty && state.invalid" class="invalid-feedback">
+                                Invalid state
+                            </div>  
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-control-placeholder form-field">Country</label>
+                            <input type="text" class="form-control is-valid" name="country" #country=ngModel [(ngModel)]="addr.country" required pattern="[a-zA-Z\s]+"/>
+                            <div *ngIf="country.dirty && country.invalid" class="invalid-feedback">
+                                Invalid country
+                            </div>  
+                        </div>
+                        
+                        <div class="form-heading">
+                            SAVE ADDRESS AS
+                        </div>
+                        <div>
+                            <input type="radio" id="home" name="type" value="home" [(ngModel)]="addr.type"/>
+                            <label for="home" class="px-2">HOME</label><br>
+                            <input type="radio" id="work" name="type" value="work" [(ngModel)]="addr.type"/>
+                            <label for="work" class="px-2">WORK</label><br>
+                            <hr class="line"/>
+                        </div>
+                        <div>
+                            <input type="checkbox" #checkBox id="default" name="defaultaddress" value="default" (change)="isChecked($event, addr)"/>
+                            <label for="default" class="px-2">Make this my default address</label><br>
+                        </div>
+                        <div>
+                            <button type="button" class="btn-check-save" (click)="saveAddress()" [disabled]="!frm.valid" data-dismiss="modal">SAVE ADDRESS</button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

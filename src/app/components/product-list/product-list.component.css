@@ -1,0 +1,117 @@
+/**This CSS File describes the style of the product-list component
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+**/
+
+a {
+    text-decoration: none;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+    .brand-banner {
+        height: 16em;
+        width: 100%;
+        background: center/cover no-repeat;
+        text-align: center;
+        position: relative;
+    }
+    .brand-banner>.name {
+        color: #930c00;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: cursive;
+        font-style: italic;
+        text-transform: capitalize;
+        text-shadow: 4px 4px #ddd;
+        letter-spacing: 0.5em;
+        font-size: 250%;
+    }
+    .brand-banner>.name:focus {
+        outline: none;
+    }
+    .brand-banner>.description {
+        color: #ccc;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: normal;
+        text-transform: capitalize;
+        text-shadow: 2px 2px #930c00;
+        letter-spacing: 0.05em;
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .brand-banner {
+        height: 25vh;
+        width: 100%;
+        max-width: 98vw;
+        overflow: hidden;
+        background: center/cover no-repeat;
+        text-align: center;
+        position: relative;
+    }
+    .brand-banner>.name {
+        color: #930c00;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        overflow: hidden;
+        transform: translate(-50%, -50%);
+        font-family: cursive;
+        font-style: normal;
+        text-transform: capitalize;
+        text-shadow: 3px 3px #ddd;
+        letter-spacing: 0.5em;
+        font-size: 120%;
+    }
+    .brand-banner>.description {
+        color: #ccc;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        overflow: hidden;
+        transform: translate(-50%, -50%);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: italic;
+        text-transform: none;
+        text-shadow: 2px 2px #930c00;
+        letter-spacing: 0.05em;
+        font-size: 0.8em;
+    }
+    @media screen and (max-width: 280px) {
+        .brand-banner>.description {
+            display: none;
+        }
+    }
+}
+
+.btn-page-nav {
+    margin: 0 2em;
+    width: 10em;
+}
+
+.btn-page-nav:hover {
+    transform: scale(1.1);
+}
+
+.btn-page-nav:focus {
+    outline: none;
+}
+
+.box-container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 92vw;
+    overflow: hidden;
+}

@@ -1,0 +1,91 @@
+<!-- This HTML file describes the Cart component with  product ,Quantity and price also  with Total ,Discount,Voucher price of 
+@author S.Swetha, Shruthi Sunil Mayekar 
+@version 12.0.2
+-->
+
+<div class="container-fluid">
+    <div class="row mt-5" *ngIf="cartItems.length > 0">
+        <div class="col col-lg-8">
+            <div class="col-12 mb-3 col-lg-12"  *ngFor="let cartItem of cartItems">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table table-borderless table-shopping-cart" >
+                        <thead class="text-muted">
+                            <tr class="small text-uppercase">
+                                <th scope="col" colspan="3">Product</th>
+                                <th scope="col" colspan="4">Quantity</th>
+                                <th scope="col" colspan="3">Price</th>
+                                <th scope="col" colspan="1"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3">
+                                    <figure class="itemside justify-content-between align-items-center">
+                                        <div class="aside"><img src="{{cartItem.product.images[0]}}" class="img-sm"></div>
+                                        <figcaption class="info"> <a [routerLink]="['/product', cartItem.product.modelNo]" class="title text-dark" data-abc="true">{{cartItem.product.name}}</a>
+                                            <p class="text-muted small">Brand : {{cartItem.product.brand.name}} <br>{{cartItem.product.gender}} </p>
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td colspan="4">
+                                   <app-cart-quantity [productId]="cartItem.product.id" [(quantity)]="cartItem.quantity" (quantityChange)="handleChange(cartItem.product.id, $event)"></app-cart-quantity>
+                                 </td>
+                                <td colspan="3">
+                                    <div class="price-wrap"> <var class="price">{{cartItem.product.price | currency:'INR'}}</var> </div>
+                                </td>
+                                <td colspan="1"> <button class="btn btn-light"  (click)="removeItem(cartItem.product.id)"> Remove</button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col col-lg-4"><div class="col-md-12 col-sm-12 col-12 col-lg-12">
+            <div class="card mb-5">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group"> <label>Have coupon?</label>
+                            <div class="input-group"> <input type="text" class="form-control coupon" name="coupon" placeholder="Coupon code" [(ngModel)]="voucherInput" #voucher=ngModel (input)="hideMessage()"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon" (click)="check()">Apply</button> </span> </div>
+                        </div>
+						<div class="voucher-message" *ngIf="voucherApplied != undefined">
+							<span *ngIf="voucherApplied" class="valid">Voucher successfully applied</span>
+							<span *ngIf="!voucherApplied" class="invalid">Invalid voucher</span>
+						</div>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                          <tr>
+                            <th scope="col">Total Price</th>
+                            <td class="text-right" scope="row">{{getTotalPrice() | currency:'INR'}}</td>
+                          </tr>
+                          <tr>
+                            <th scope="col">Discount Price</th>
+                            <td scope="row" class="text-danger text-right">- {{getDiscountPrice() | currency : 'INR'}}</td>
+                          </tr>
+                          <tr *ngIf="voucherDiscount > 0">
+                            <th scope="col">Voucher Discount</th>
+                            <td scope="row" class="text-danger text-right">({{ voucherDiscount }}%) -&nbsp;{{ getVoucherDiscount() | currency : 'INR'}}</td>
+                          </tr>
+						  <tr>
+							  <td colspan="2" class="hr-col"><hr></td>
+						  </tr>
+                          <tr>
+                            <th scope="col">Grand Total</th>
+                            <td scope="row" class="text-success text-right">{{getTotalAmount()  | currency : 'INR'}}</td>
+                          </tr>
+                      </table><a routerLink="/payment" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a>
+                </div>
+            </div>
+        </div></div>
+        
+    </div>
+    <div class="text-center mb-3" *ngIf="cartItems.length <= 0">
+        <h2 >Oops!! No items in the cart.</h2>
+        <button class="btn btn-success " routerLink="/products">Continue Shopping</button>
+    </div>
+</div>

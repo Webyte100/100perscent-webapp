@@ -1,0 +1,111 @@
+<!-- This HTML file describes the product details with delivery options ,specifications
+* @author S.Swetha, Shruthi Sunil Mayekar 
+* @version 12.0.2
+-->
+
+<div id="content-wrapper" class="row px-5" *ngIf="product">
+
+    <div class=" mt-5 col-sm-12 col-md-6 ">
+        <img id="featured" src="{{featureImage}}" class="mt-1" alt="Perfume">
+        <br /><br />
+        <div id="slide-wrapper">
+
+            <i id="slideLeft" class="bi bi-arrow-left-circle-fill arrow" (click)="scrollLeft()"></i>
+            <div id="slider" #slider>
+                <img class="thumbnail" *ngFor="let img of product.images; index as i" src="{{img}}" alt="Perfume" (mouseover)="changeImg($event)">
+            </div>
+            <i id="slideRight" class="bi bi-arrow-right-circle-fill arrow " (click)="scrollRight()"></i>
+
+        </div>
+    </div>
+
+    <div class=" mt-3  col-sm-12 col-md-6 p-4">
+        <h1>{{product.name}}</h1>
+        <!-- <h2 class="text-gray">{{product.gender}}  Perfume</h2> -->
+        <h2 class="text-gray">{{product.category}} </h2>
+
+        <div>
+            <app-rating [rating]="product.starRating"></app-rating>
+        </div>
+
+        <hr>
+
+        <span style="font-size:x-large;"><strong>{{product.getDiscountedPrice() | currency: "INR" :
+                "symbol"}}</strong></span>&nbsp;&nbsp;&nbsp;<span style="font-size: x-large;"><del> {{product.price |
+                currency: "INR" : "symbol"}}</del></span>&nbsp;&nbsp;&nbsp;<span class="discount">({{product.discount}}%
+            OFF)</span><br />
+        <div class="text-success" style="font-size: larger;"><strong>inclusive of all taxes</strong></div>
+
+        <hr><br />
+
+        <div class="lh-lg">
+            <h4>DELIVERY OPTIONS&nbsp;&nbsp;<i class="bi bi-truck"></i></h4><br />
+            <h5><i class="bi bi-bag-check"></i>&nbsp;&nbsp;&nbsp;Get your perfume within one week</h5><br />
+            <h5><i class="bi bi-cash-coin"></i>&nbsp;&nbsp;&nbsp;Pay on delivery available</h5><br />
+            <h5><i class="bi bi-arrow-left-right"></i>&nbsp;&nbsp;&nbsp;Easy 30 days return available</h5><br />
+
+            <h5>100% original products</h5><br />
+            <app-cart-quantity [productId]="product.id" [quantity]="quantityInCart" [showLabel]="true"></app-cart-quantity>
+        </div>
+        <br />
+        <hr><br />
+
+        <h4>PRODUCT DETAILS&nbsp;&nbsp;<i class="bi bi-card-text"></i></h4>
+
+        <p>
+            Brand: {{product.brand.name}} <br /> Collection: {{product.collection.name}}  <br /> Category: {{product.category}} <br /> Expiry Date: {{product.expiryDate}} <br />
+        </p>
+
+        <div>
+            <h5>Specifications</h5><br />
+            <div class="row row-cols-2">
+                <div class="col">
+                    <div *ngIf="product.category">
+                        <h6>Series</h6>
+                        <h5>{{product.series}}</h5>
+                        <hr />
+                    </div>
+                </div>
+                <div class="col">
+                    <div *ngIf="product.category">
+                        <h6>Model No</h6>
+                        <h5>{{product.modelNo}}</h5>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h5>Complete The Look</h5>
+            <p>This {{product.brand.name}} {{product.collection.name}} perfume will quickly become your favourite.</p>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row mt-5">
+            <h2>Similar Products</h2>
+        </div><br />
+        <div class="row row-cols-1 row-cols-md-4 mb-2">
+            <div class="col" *ngFor="let similarProduct of similarProducts">
+                <div class="card" routerLink="/product/{{similarProduct.modelNo}}">
+                    <img src="{{similarProduct.images[0]}}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{similarProduct.name}}</h5>
+                        <p class="card-text text-gray">{{similarProduct.category}}</p>
+
+                        <span>
+                            <app-rating [rating]="product.starRating"></app-rating>
+                        </span>
+
+                        <span class="discount">
+                            ({{similarProduct.discount}}% OFF)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br /><br />
+    </div>
+
+</div>

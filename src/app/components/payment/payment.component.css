@@ -1,0 +1,199 @@
+/**This CSS File describes the style of the payment component
+* @author S.Swetha, Shruthi Sunil Mayekar 
+* @version 12.0.2
+**/
+
+.main-heading{
+    font-weight: 800;
+    font-size: x-large;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.heading{
+    font-size: large;
+    font-weight: 600;
+    color: darkred;
+}
+
+.price{
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.card-heading{
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 2%;
+}
+
+.checkout-footer{
+    margin-top: 10px;
+    border-top: 1px groove #eaeaec;
+}
+
+.checkout-footer .content{
+    max-width: 982px;
+    padding-top: 10px;
+    margin: auto;
+    text-align: center;
+}
+.images{
+    display: inline-block;
+}
+
+/*paypal login form */
+.paypalForm {
+    border: 3px solid #f1f1f1;
+}
+
+.paypal-login {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.paypal-button {
+   background-color: #04AA6D;
+   color: white;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   width: 100%;
+}
+
+.paypal-button:hover {
+   opacity: 0.8;
+}
+
+.cancelbtn {
+   width: auto;
+   padding: 5px 10px;
+   margin: 10px;
+   border-radius: 4px;
+}
+
+.imgcontainer {
+   text-align: center;
+   margin: 24px 0 12px 0;
+}
+
+img.paypal {
+   width: 40%;
+   border-radius: 50%;
+}
+
+.block {
+   padding: 16px;
+}
+
+span.psw {
+   float: right;
+   padding-top: 16px;
+}
+.img-bank {
+	width: 100px;
+}
+form.credit-card-form input.ng-invalid, form.credit-card-form select.ng-invalid {
+	border-color: #dc3545;
+	padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+form.credit-card-form input.ng-invalid:focus, form.credit-card-form select.ng-invalid:focus {
+	box-shadow: 0 0 0 0.2rem rgb(220 53 69 / 25%);
+}
+
+form.credit-card-form input.ng-valid, form.credit-card-form select.ng-valid {
+	border-color: #28a745;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+input.ng-valid:focus, select.ng-valid:focus {
+    box-shadow: 0 0 0 0.2rem rgb(40 167 69 / 25%);
+}
+.invalid-message {
+	width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+
+/* net banking */
+.net-banking{
+    border: 3px solid #f1f1f1;
+}
+
+.bottom-bordered{
+    padding-bottom: 5px;
+    border-bottom: 1px dashed slategray;
+}
+
+.paynow{
+    text-align: center;
+}
+
+.bank-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+  
+
+.bank-option:hover input ~ .checkmark {
+    background-color: slategray;
+}
+  
+.bank-option input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.bank-option input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+.bank-option .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}

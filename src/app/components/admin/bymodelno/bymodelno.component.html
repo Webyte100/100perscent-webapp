@@ -1,0 +1,50 @@
+<!--This HTML file describes product page design
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+-->
+
+
+<app-admin></app-admin>
+
+<div class="container">
+    <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Sorry!</strong> This Model No perfume doesn't exists on 100 PerScent.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form (ngSubmit)="findByModelNo()" class="form-inline">
+        <label for="model" class="pr-4"> <b>Enter Model Number:</b> </label>
+        <input name="model" [(ngModel)]="model" class="form-control m-3" placeholder="Enter Model No..." required />
+        <button type="submit" class="btn btn-info m-3 pl-5 pr-5">Search..</button>
+    </form>
+    <table *ngIf="!alert && product.modelNo!=null" class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Product Image</th>
+                <th>Product ModelNo</th>
+                <th>Product Name</th>
+                <th>Product Brand</th>
+                <th>Product Price</th>
+                <th>Product Rating</th>
+
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tr>
+            <td><img src="{{product.images[0]}}" alt=""></td>
+            <td>{{ product.modelNo }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.starRating}}</td>
+
+            <td><a [routerLink]="['/admin-edit/',product.modelNo]"><button
+                        class="btn btn-info btn-sm btn-block" (click)=edit(product.modelNo)>Edit</button></a></td>
+            <td><button class="btn btn-danger btn-sm btn-block" (click)=remove(product.modelNo)>
+                    Delete</button></td>
+        </tr>
+    </table>
+
+</div>

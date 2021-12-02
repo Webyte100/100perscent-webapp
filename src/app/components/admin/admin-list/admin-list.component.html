@@ -1,0 +1,37 @@
+<!--This HTML file describes  to update Products in stock by admin
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+-->
+
+<app-admin></app-admin>
+
+<div class="container">
+    <div class="div mb-4">
+        <h4 class="pt-3 pb-3">Products In Stock</h4>
+    </div>
+    <!-- <h6 class="mb-3 mt-3">Active 100 PerScent Product Model</h6> -->
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Product Image</th>
+                <th>Model No</th>
+                <th (click)='orderByName()'>Product Name</th>
+                <th (click)='orderByBrand()'>Product Brand</th>
+                <th (click)='orderByPrice()'>Product Price</th>
+                <th>Product Rating</th>
+                <th>Edit</th>
+                <th>Delete </th>
+            </tr>
+        </thead>
+        <tr *ngFor="let p of products, let i = index">
+            <td><img src="{{p.images[0]}}" alt=""></td>
+            <td>{{p.modelNo}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.brandName}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.starRating}}</td>
+            <td><a [routerLink]="['/admin-edit/',p.modelNo]"><button class="btn btn-info btn-sm btn-block" (click)=edit(p.modelNo)>Edit</button></a></td>
+            <td><button class="btn btn-danger btn-sm btn-block" (click)=remove(p.modelNo)> Delete</button></td>
+        </tr>
+    </table>
+</div>

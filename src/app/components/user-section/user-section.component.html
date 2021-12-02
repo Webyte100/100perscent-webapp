@@ -1,0 +1,112 @@
+<!-- This HTML file describes the  user section component
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+-->
+
+<div class="box">
+    <div class="container">
+        <section class="main">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="aside-left">
+                        <div class="sub-section logged" *ngIf="islogged">
+                            <!---->
+                            <div class="container profile">
+                                <div class="profile-img">
+                                    <div class="img-container">
+                                        <img [src]="user.userImage" alt="profile-img" class="profile-img">
+                                    </div>
+                                    <button class="btn btn-info" (click)="select='img'">Change Profile Image</button>
+                                </div>
+                                <table class="profile-table table table-sm">
+                                    <tr>
+                                        <th>Name:</th>
+                                        <td>{{user.userName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email ID: </th>
+                                        <td>{{user.email}}</td>
+                                    </tr>
+                                    <tr *ngIf="user.phoneNo!=null">
+                                        <th>Phone No:</th>
+                                        <td>{{user.phoneNo}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Created:</th>
+                                        <td>{{user.dateCreated | date:'dd-MM-yyyy'}}</td>
+                                    </tr>
+                                    <!-- <tr>
+                                            <td>Saved Addresses : </td>
+                                            <td>
+                                                <div *ngFor="let address of addresses">
+                                                    <p>{{address.name}}</p>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+                                </table>
+                            </div>
+                        </div>
+                        <div class="sub-section not-logged" *ngIf="!islogged">
+                            <h2>Important links!</h2>
+                            <hr />
+                            <a [routerLink]="['/login']">Sign in now!</a><br />
+                            <a [routerLink]="['/register']">Create a new account</a><br />
+                            <a [routerLink]="['/products']">Checkout our collection</a><br />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div class="container main-body" *ngIf="select=='none'">
+                        <div class="head d-none d-md-block">
+                            <div *ngIf="islogged" class="logged">
+                                <h2>Hello {{user.userName}}!</h2>
+                            </div>
+                            <div class="not-logged" *ngIf="!islogged">
+                                <h2>Hello Guest!</h2>
+                            </div>
+                        </div>
+                        <div class="row item-container">
+                            <div class=" col col-12 col-md-6">
+                                <div class="item-box card" [routerLink]="['/cart']">
+                                    <i class="bi bi-cart-fill item-img"></i>
+                                    <strong>Your Cart</strong>
+                                </div>
+                            </div>
+                            <div class=" col col-12 col-md-6">
+                                <div class="item-box card" [routerLink]="['/orders']">
+                                    <i class="bi bi-bag-check-fill item-img"></i>
+                                    <strong>Your Orders</strong>
+                                </div>
+                            </div>
+                            <div class=" col col-12 col-md-6">
+                                <div class="item-box card" (click)="addressSelected()">
+                                    <i class="bi bi-geo-alt-fill item-img"></i>
+                                    <strong>Addresses</strong>
+                                </div>
+                            </div>
+                            <div class=" col col-12 col-md-6">
+                                <div class="item-box card" [routerLink]="['/payment']">
+                                    <i class="bi bi-wallet-fill item-img"></i>
+                                    <strong>Payment Methods</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="address justified" *ngIf="select=='address'">
+                        <app-address [userName]="user.userName" [center]="true"></app-address>
+                        <button class="btn btn-info" (click)="select='none'">Back to Your Account!</button>
+                    </div>
+                    <div class="payment justified" *ngIf="select=='payment'">
+                        <!-- <app-address [userName]="user.userName"></app-address> -->
+                        <button class="btn btn-info" (click)="select='none'">Back to Your Account!</button>
+                    </div>
+                    <div class="img justified" *ngIf="select=='img'">
+                        <img class="img-change" [src]="user.userImage">
+                        <file-upload [responses]="response"></file-upload>
+                        <button [disabled]="response[response.length - 1]?.status!='200'" class="btn btn-info" (click)="updateImg()">Upload Image!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

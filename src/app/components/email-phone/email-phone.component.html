@@ -1,0 +1,29 @@
+<!--This HTML file describes email and phone verfication
+@author Varsha Vaitla, Surya Alapati
+@version 12.0.2
+-->
+
+<section class="email-phone">
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header p-1">
+                <img src="/assets/images/logo.png" alt="">
+                <h5 class="mb-2">
+                    USER VERIFICATION
+                </h5>
+            </div>
+            <!-- <div class="row mb-3" *ngIf="email">
+                <h2 class="col-12 justify-content-center">Email: {{ email }}</h2>
+                <div class="col-sm-12">
+                    <button (click)="onSend(1)" type="button" class="btn btn-secondary">Send OTP here</button>
+                </div>
+            </div> -->
+            <div class="row mb-3" *ngIf="phone">
+                <h2 class="col-12 justify-content-center">Phone: {{ phone }}</h2>
+                <div class="col-sm-12">
+                    <button (click)="onSend(2)" type="button" class="btn btn-secondary">Send OTP here</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

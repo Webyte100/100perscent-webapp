@@ -1,0 +1,77 @@
+/**This class describes order details 
+* @author S.Swetha, Shruthi Sunil Mayekar 
+* @version 12.0.2
+**/
+
+.container{
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+}
+
+h1{
+    margin: 2%;
+}
+
+h2{
+    font-size: 1.23em;
+    font-weight: 700;
+}
+h3{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+strong {
+	margin-right: 5px;
+}
+
+a,a:active,a:visited{
+    text-decoration: none;
+    color: initial;
+}
+
+.item-name{
+cursor: pointer;
+}
+
+.centered{
+    justify-content: center;
+    margin: 3% auto;
+}
+
+.in_cart{
+    color: #942626;
+}
+
+.placed{
+    color: rgb(127, 134, 35);
+}
+
+.in_transit{
+    color: rgb(35, 125, 131);
+}
+.delivered{
+    color: #0c831c;
+}
+.alert-info.card{
+    cursor: initial;
+}
+
+.order-item-img{
+    max-width: 200px;
+    height: 170px;
+    margin: 2% auto;
+}
+
+.order-head{
+    background-color: #eee;
+    border-bottom: 2px solid #ccc;
+    padding: 1%;
+}

@@ -1,0 +1,15 @@
+<!-- This HTML File  to styles button to add more quantity
+* @author Varsh Vaitla, Surya Alapati
+* @version 12.0.2
+-->
+
+
+<div>
+	<button class="btn btn-info btn-lg p-3 text-center add-to-cart" *ngIf="quantity <= 0" (click)="addQuantity()">Add to Cart <i class="bi bi-cart2 navbar-icon"></i></button>
+	<span *ngIf="quantity > 0">
+		<span class="mr-2" style="font-weight: 600; font-size: large;" *ngIf="showLabel"> Quantity: </span>
+		<button class="btn btn-info btn-sm mr-2 " id="decrease" (click)="subtractQuantity()">-</button>
+		<span >{{ quantity }}</span>
+		<button class="btn btn-info btn-sm ml-2 " id="increase" (click)="addQuantity()">+</button>
+	</span>
+</div>

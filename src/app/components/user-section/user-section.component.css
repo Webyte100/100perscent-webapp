@@ -1,0 +1,69 @@
+/**This CSS File describes the style of the user-section component
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+**/
+
+.box{
+    text-align: center;
+    padding: 5% 0;
+}
+.profile{
+    text-align: center;
+    justify-content: center;
+}
+.profile-table{
+    margin: auto;
+    text-transform: none;
+}
+.profile-table th, .profile-table td {
+	border: none;
+}
+.profile-table th {
+	text-align: end;
+}
+.img-container{
+    width: 95%;
+    max-width: 140px;
+    margin: 5px auto;
+    height: 150px;
+    border: 2px solid #ccc;
+    border-radius: 12% 12%;
+    overflow: hidden;
+}
+.img-container>img{
+    width: 99%;
+    height: 99%;
+}
+.item-row{
+    height: 100%;
+    width: 100%;
+}
+
+.item-img{
+   size: 2em;
+   font-size: 2em;
+}
+.item-box{
+    height: 5em;
+    width: 85%;
+    margin: 3% auto;
+    overflow: hidden;
+    justify-content: center;
+    text-align: center;
+    color: #008793;
+}
+
+.item-container{
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+.item-box:hover{
+    background-color: #ddd;
+}
+
+.img-change{
+    height: 10em;
+    width: auto;
+    border: 2 px solid gray;
+    border-radius: 3% 3%;
+}

@@ -1,0 +1,35 @@
+<!--This HTML file contains the design of otp verification
+@Author 
+@Version 12.0.2
+-->
+
+
+<section class="otp">
+    <div class="container">
+        <div class="card text-center">
+            <form (ngSubmit)="onSubmit()" [formGroup]="form">
+                <div class="card-header p-1">
+                    <img src="/assets/images/logo.png" alt="">
+                    <h5 class="mb-2">
+                        OTP VERIFICATION
+                    </h5>
+                    <div>
+                        <small class="pb-4">Code has been sent to your Mobile Number!</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 input-container d-flex flex-row justify-content-center mt-2" *ngFor="let input of formInput;  index as i">
+                        <input #formRow type="text" formControlName="{{input}}" class="form-control m-1 text-center rounded" maxlength="1" (keyup)="keyUpEvent($event, i)">
+                    </div>
+                </div>
+
+                <div>
+                    <small class="receive-otp">Didnt receive the Otp? <a [routerLink]="['/email-phone']" class="text-decoration-none">Resend</a> </small>
+                </div>
+                <div class="mt-3 mb-5">
+                    <button class="btn">Verify</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

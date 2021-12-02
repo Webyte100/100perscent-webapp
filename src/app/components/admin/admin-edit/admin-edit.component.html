@@ -1,0 +1,129 @@
+<!--This HTML file describes the feilds of edit product in  application by admin
+@author S.Swetha, Shruti Sunil Mayekar 
+@version 12.0.2
+-->
+
+<app-admin></app-admin>
+
+<div class="container-fluid">
+    <div class="div mb-4">
+        <h5 class="pt-3 pb-3">Edit product to 100 PerScent.</h5>
+    </div>
+    <form (ngSubmit)="update()" class="was-validated" #frm_edit=ngForm action="">
+
+
+        <div class="row">
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="id">Model ID: </label>
+                <input class="form-control is-valid" name='id' [(ngModel)]='product.id' required readonly>
+                <div class="invalid-feedback">Enter Correct Product ModelNo</div>
+            </div>
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="name">Model Name: </label>
+                <input pattern="[a-zA-Z\s_\-']{2,}" class="form-control is-valid" name='name' [(ngModel)]='product.name' required #name=ngModel>
+                <div class="invalid-feedback">Enter Correct Product Name</div>
+            </div>
+
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="price">Product Price: </label>
+                <input type="number" class="form-control is-valid" name='price' [(ngModel)]='product.price' required #price=ngModel pattern="[0-9]{3,}">
+                <div class="invalid-feedback">Invalid Price</div>
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="brand">Product Brand: </label>
+                <select name="brand" [(ngModel)]="product.brand.name" class="form-control" required>
+                <option *ngFor="let b of brands" [value]="b.name"> {{b.name}}</option>
+              </select>
+                <div class="invalid-feedback">Enter Correct Product Brand</div>
+            </div>
+
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="collection">Product Collection: </label>
+                <input class="form-control is-valid" name='collection' [(ngModel)]='product.collection.name' required #collection=ngModel pattern="[A-Za-z'\s]{3,}">
+                <div class="invalid-feedback">Invalid Collection</div>
+            </div>
+
+
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="series">Product Series: </label>
+                <input class="form-control is-valid" name='series' [(ngModel)]='product.series' required #series=ngModel pattern="[a-zA-Z\s_\-/&]{1,}">
+                <div class="invalid-feedback">Invalid Series</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="ModelNo">Model Number: </label>
+                <input readonly class="form-control is-valid" name='modelNo' [(ngModel)]='product.modelNo' required #modelNo=ngModel>
+                <div class="invalid-feedback">Enter Correct Product ModelNo</div>
+            </div>
+
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="category">Product Category: </label>
+                <input class="form-control is-valid" name='category' [(ngModel)]='product.category' required #movement=ngModel pattern="[A-Za-z]{2,}">
+                <div class="invalid-feedback">Invalid Category</div>
+            </div>
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="gender">Product Gender: </label>
+                <select name="gender" [(ngModel)]="product.gender" class="form-control" required>
+                <option *ngFor="let gen of genders" [value]="gen"> {{gen}}</option>
+              </select>
+                <div class="invalid-feedback">Choose Gender</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="starRating">Product Rating: </label>
+                <input type="number" class="form-control is-valid" name='starRating' [(ngModel)]='product.starRating' required #rating=ngModel pattern="[0-9]{1,}">
+                <div class="invalid-feedback">Invalid Rating</div>
+            </div>
+
+
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="discount">Product Discount: </label>
+                <input type="number" class="form-control is-valid" name='discount' [(ngModel)]='product.discount' required #discount=ngModel pattern="[0-9]{1,}">
+                <div class="invalid-feedback">Invalid Discount</div>
+            </div>
+
+            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <label for="expiryDate">Product Expiry Date: </label>
+                <input type="number" class="form-control is-valid" name='expiryDate' [(ngModel)]='product.expiryDate' required #expiryDate=ngModel pattern="^((?:19|20)\d\d)[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$">
+                <div class="invalid-feedback">Invalid Expiry Date</div>
+            </div>
+        </div>
+        
+        <div class="row">
+            
+            <div class="form-group col-lg-6 col-md-6 col-sm-12 ">
+                <label for="deliverySpeed ">Product Delivery Speed: </label>
+                <select name="deliverSpeed " [(ngModel)]="product.deliverySpeed " class="form-control " required>
+            <option *ngFor="let speed of speeds " [value]="speed "> {{speed}}</option>
+          </select>
+                <div class="invalid-feedback ">Choose Deliver Speed</div>
+            </div>
+        </div>
+        <div class="row ">
+            <file-upload *ngIf="responses.length<1" [responses]='responses'></file-upload>
+
+            <div class="upload">
+                <button type="button" class="btn btn-primary image" (click)="addImage()">UPLOAD IMAGES</button>
+            </div>
+            <div *ngFor="let image of product.images, let i=index">
+                <img (click)="removeImg(i)" [src]="image " alt="" style="width: 150px; height: 150px; ">
+            </div>
+            <div *ngFor="let response of responses">
+                <div *ngIf="response.status!='200'" style="width: 250px; margin-top: 9%; margin-left: 1%; height: 9px; background-color: green; ">{{response.progress}}</div><br>
+
+                <div>{{response.status=='200'?'':''}}</div>
+            </div>
+        </div>
+        <div class="button">
+            <button type="submit" class="btn btn-info btn-block">Update</button>
+        </div>
+
+    </form>
+</div>

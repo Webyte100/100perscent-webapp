@@ -1,0 +1,10 @@
+/**This CSS File describes the style of the file-upload component
+* @author Varsha Vaitla, Surya Alapati
+* @version 12.0.2
+**/
+
+.input{
+    border: 1px solid rgb(54, 53, 53);
+    border-radius: 3% 3%;
+    margin: 5%;
+}

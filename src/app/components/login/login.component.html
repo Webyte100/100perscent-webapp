@@ -1,0 +1,32 @@
+<!--This HTML file describes login page feilds
+@author Varsha Vaitla, Shruthi Sunil Mayekar 
+@version 12.0.2
+-->
+
+<div class="login">
+    <form *ngIf="!success" (ngSubmit)="authenticate()" class="was-validated" #frm=ngForm>
+
+        <h2>Login</h2>
+        <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Login Failed !</strong> Invalid User Details
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="group">
+            <input type="text" placeholder="Username" name="username" id="username" [(ngModel)]="cred.username" #user=ngModel required pattern="[a-zA-Z0-9]{4,}"><i class="bi bi-person-fill"></i></div>
+        <div class="group">
+            <input type="password" placeholder="Password" name="pwd" id="password" [(ngModel)]="cred.password" #pass=ngModel minlength="5" required><span class="eye" onclick="myFunction();"><i id="hide1" class="fa fa-eye" style='font-size: 19px'></i><i id="hide2"
+                    class="fa fa-eye-slash" style='font-size: 19px'></i></span><i class="bi bi-lock-fill"></i></div>
+
+        <div class="group">
+            <input type="submit" class="btnn" value="Login" [disabled]="frm.invalid">
+        </div>
+		<p class="para">Forgot ? <a routerLink="forgotpassword">Password</a></p>
+		<p class="para">Don't have an account ? <a routerLink="/register">Create an account</a></p>
+    </form>
+
+    <div *ngIf="success" class="sucess  fade show" role="success">
+        <strong><h2>Login Success !</h2></strong>
+    </div>
+</div>

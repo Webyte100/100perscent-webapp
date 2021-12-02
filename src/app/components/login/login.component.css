@@ -1,0 +1,170 @@
+/**This CSS File describes the style of the login component
+* @author Varsha Vaitla,  Shruti Sunil Mayekar 
+* @version 12.0.2
+**/
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    color: #444;
+    font-family: calibri;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.login {
+    margin: 5% auto;
+    text-align: center;
+    position: relative;
+    width: 330px;
+}
+
+input {
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+	border-bottom: 2px solid #444;
+    padding: 10px 20px 10px 20px;
+}
+input.ng-invalid {
+	border-color: red;
+}
+
+input,
+a {
+
+    font-size: 16px;
+    font-size: 17px !important;
+    font-weight: 600;
+}
+.alert{
+    padding: 3.7%;
+    height: 47px;
+}
+.group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.group i{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+
+p {
+    margin-bottom: 5px;
+}
+p a:hover{
+    text-decoration: none;
+}
+
+i.fa.fa-empire,
+a {
+    
+    color: #193d72;
+}
+
+i.fa.fa-empire {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-weight: bold;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid  #193d72;
+    width: 150px;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input:focus,
+input:focus::placeholder,
+input:focus+i {
+	color: #193d72;
+}
+
+input:focus {
+    outline: 0;
+}
+input[type="submit"]:disabled {
+	background: #666;
+	opacity: 0.6;
+}
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    height: 300px;
+    width: 500px;
+}
+
+body::before {
+    
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+
+    bottom: 0;
+    left: 0;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+body::after {
+    
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+
+    top: 0;
+    right: 0;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+.btnn {
+   
+    background: linear-gradient(to right top, #252729, #004d7a, #008793);
+    color: white;
+}
+
+.btnn:hover {
+    color: white;
+}
+
+.fa-send {
+    color: white;
+    margin-right: 5px;
+
+}
+
+.para {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.eye {
+    position: absolute;
+}
+
+.hide1 {
+    display: none;
+}
+
+@media (max-width: 767px) {
+
+    body::before,
+    body:after {
+        height: 150px;
+        width: 300px;
+
+    }
+}

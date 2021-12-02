@@ -1,0 +1,165 @@
+/**This CSS File describes the style of the register component
+* @author Varsha Vaitala, Shruti Sunil Mayekar 
+* @version 12.0.2
+**/
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    color: #444;
+    font-family: calibri;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.register {
+    margin: auto;
+    
+    text-align: center;
+    position: relative;
+    width: 320px;
+}
+
+input {
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+}
+
+input {
+    border-bottom: 2px solid #444;
+    padding: 8px 15px 8px 15px;
+}
+
+input,
+p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+input,
+a {
+    font-size: 17px;
+}
+
+.group {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.group i {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+/*button{
+padding: 12px;
+background-image: linear-gradient(57deg,#ff1464,purple);
+margin-bottom: 20px;
+cursor: pointer;
+}
+button, button i{
+color: #fff;
+}
+button i{
+margin-right: 5px;
+}*/
+p {
+    margin-bottom: 20px;
+}
+
+i.fa.fa-empire,
+a {
+    /* color: #ff1464;*/
+    color: #193d72;
+}
+
+i.fa.fa-empire {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+.alert{
+    padding: 3.7%;
+    height: 47px;
+}
+h2 {
+    font-weight: bold;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid  #193d72;
+    width: 150px;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input:focus,
+input:focus::placeholder,
+input:focus{
+    color: #193d72;
+
+}
+
+input:focus {
+    outline: 0;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    height: 300px;
+    width: 500px;
+
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    height: 300px;
+    width: 500px;
+}
+
+body::before {
+   /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);*/
+   
+   background-image: linear-gradient(to right top, #051937, #004d7a, #008793,#00bf72);
+   bottom: 0;
+    left: 0;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+body::after {
+    
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793);
+    top: 0;
+    right: 0;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+.btnn {
+    
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793);
+    color: white;
+}
+
+.btnn:hover {
+    color: white;
+}
+
+@media (max-width: 767px) {
+
+    body::before,
+    body:after {
+        height: 150px;
+        width: 300px;
+    }
+}

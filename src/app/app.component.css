@@ -1,0 +1,8 @@
+/**This CSS File describes the style of the root App component
+* @author Varsha Vaitla 
+* @version 12.0.2
+**/
+
+.do-blur {
+	filter: blur(2px);
+}

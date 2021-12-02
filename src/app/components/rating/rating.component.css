@@ -1,0 +1,36 @@
+/**This CSS File describes the style of the rating component
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+**/
+
+.rating {
+    size: .2em;
+}
+
+.rating-container {
+    width: 100%; 
+    min-width: 200px;
+    margin: 0 auto;
+    height: 1.5em;
+}
+
+.rating-list li {
+    /* float: right; */
+    color: #ddd;
+    width: fit-content;
+    padding: 2px 2px;
+}
+
+/* .rating-list li:hover,
+.rating-list li:hover~li {
+    color: #ffd700;
+} */
+
+.rating-list {
+    display: inline-block;
+    list-style: none;
+}
+
+.rating-list li.selected {
+    color: #ffd700;
+}

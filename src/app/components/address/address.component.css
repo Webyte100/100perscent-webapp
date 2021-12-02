@@ -1,0 +1,161 @@
+/**This CSS File describes the style of the address component
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+**/
+
+.baseBlock{
+    border: 1px solid #eaeaec;
+    margin-bottom: 8px;
+    vertical-align: top;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 1px rgb(40 44 63 / 20%);
+}
+
+.selected {
+	box-shadow: 1px 1px 2px 1px rgb(44 168 36 / 48%), 0 0 3px 1px rgb(44 168 36 / 32%);
+}
+
+.innerBlock{
+    padding: 14px 16px 0px 48px;
+}
+
+.customerName{
+    font-weight: 600;
+    font-size: 14px;
+    color: #282c3f;
+    text-transform: capitalize;
+    word-break: break-all;
+}
+
+.addressType{
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    color: #03a685;
+    font-weight: 600;
+    border: 1px solid #03a685;
+    margin-left: 8px;
+    line-height: 12px;
+}
+
+.address{
+    margin-top: 12px!important;
+}
+
+.contact{
+    margin: 12px 0 16px;
+    font-weight: 600;
+}
+
+.defaultTitle{
+    font-size:12px;
+    font-weight: 600;
+    margin: 12px 0 16px;
+    color: #535766;
+}
+
+.newAddress{
+    box-shadow: 0 0  4px rgb(40 44 63 / 8%);
+    height: 70px;
+    padding: 22px 0 22px 19px;
+    margin-bottom: 20px;
+    vertical-align: top;
+    border: 1px dashed #d4d5d9;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.newAddress div{
+    position: relative;
+    font-weight: 600;
+    font-size: medium;
+    color: darkblue;
+}
+
+/* new-address-modal */
+.modal
+{
+    overflow-y: scroll;
+}
+
+.new-address-modal .modal-dialog .modal-content, .edit-address-modal .modal-dialog .modal-content{
+    border-radius:4px;
+    border: 1px solid slategray;
+    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+}
+
+.modal-heading{
+    font-size: 20px;
+    color: darkblue;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.close{
+    position: relative;
+    top: -5px;
+    left: -10px;
+    color: darkblue;
+    opacity:0.75;
+}
+
+.close:focus, .close:hover {
+    color: darkblue;
+    opacity: 1;
+    text-decoration: none;
+    outline:0;
+}
+
+.address-form .form-heading{
+    margin-left: 20px;
+    padding-bottom: 18px;
+    color: black;
+    font-weight: 700;
+}
+
+.line{
+    border-top: 1px dashed black;
+}
+
+.btn-check-save {
+   display: inline-block;
+   padding: 12px 0;
+   margin-bottom: 0;
+   border-radius: 4px;
+   width: 100%;
+   color: darkblue;
+   background-color: transparent;
+   border: 1px solid darkblue;
+   transition: all ease-in-out .3s;
+   font-size: 16px;
+   text-align: center;
+   white-space: nowrap;
+   vertical-align: middle;
+   -ms-touch-action: manipulation;
+   touch-action: manipulation;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.form-field{
+    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form-control-input{
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+    border: 1px solid #d4d5d9;
+    background-color: transparent;
+    font-weight: 300;
+    border-radius: 4px;
+    line-height: 14px;
+    color: black;
+}

@@ -1,0 +1,142 @@
+/**This CSS File describes the style of the cart component
+* @author S.Swetha, Shruthi Sunil Mayekar 
+* @version 12.0.2
+**/
+
+.container-fluid {
+    margin-top: 70px
+} 
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.40rem;
+}
+
+.card-body .table tr td, th{
+    border: none;
+}
+
+.img-sm {
+    height: 140px
+}
+
+.itemside .info {
+    padding-left: 8px;
+    padding-right: 7px;
+}
+
+.table-shopping-cart .price-wrap {
+    line-height: 1.2;
+}
+
+.table-shopping-cart .price {
+    font-weight: bold;
+    margin-right: 5px;
+    display: block;
+    
+}
+
+.text-muted {
+    color: #969696 !important
+}
+
+a {
+    text-decoration: none !important
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0px
+}
+
+.itemside {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.dlist-align {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+ [class*="dlist-"] {
+    margin-bottom: 5px
+} 
+
+.coupon {
+    border-radius: 1px
+}
+
+.price {
+    font-weight: 600;
+    color: #212529
+}
+
+.btn.btn-out {
+    outline: 1px solid #fff;
+    outline-offset: -5px
+}
+
+.btn-main {
+    border-radius: 2px;
+    text-transform: capitalize;
+    font-size: 15px;
+    padding: 10px 19px;
+    cursor: pointer;
+    color: #fff;
+    width: 100%
+}
+
+.btn-light {
+    color: #ffffff;
+    background-color: #F44336;
+    border-color: #f8f9fa;
+    font-size: 12px
+}
+
+.btn-light:hover {
+    color: #ffffff;
+    background-color: #F44336;
+    border-color: #F44336
+}
+
+.btn-apply {
+    font-size: 11px
+}
+
+.box{
+    width: 80px;
+    height: 30px;
+    border: 1px solid #999;
+    font-size: 18px;
+    color: black;
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 4px 4px #ccc;
+}
+
+.voucher-message {
+	padding: 5px 7px;
+}
+.voucher-message .valid {
+	color: green;
+}
+
+.voucher-message .invalid {
+	color: #F44336;
+}
+.hr-col hr{
+	margin: 0;
+}

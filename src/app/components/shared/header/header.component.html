@@ -1,0 +1,74 @@
+<!-- This HTML File describes the style of header
+* @author Varsh Vaitla, Surya Alapati
+* @version 12.0.2
+-->
+
+<header>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container-fluid">
+
+            <!-- logo -->
+            <a class="navbar-brand" href="#"><img src="../../../../assets/images/100 per scent.png" alt="Logo"
+                    class="img-fluid"></a>
+            <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#nav"
+                aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="nav"   style="background-color: #de6751;">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-light font-weight-bold px-3" [routerLink]="['/home']">HOME</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-light font-weight-bold px-3" [routerLink]="['/products']">PRODUCTS</a>
+                    </li>
+
+                    <li *ngIf="isAdmin" class="nav-item">
+                        <a class="nav-link text-light font-weight-bold px-3" [routerLink]="['/admin-list']">ADMIN</a>
+                    </li>
+
+                    <li *ngIf="!logged" class="nav-item">
+                        <a class="nav-link text-light font-weight-bold px-3 no-margin nav-link-icon" [routerLink]="['/login']">
+                            <i class="bi bi-person "></i> LOGIN
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown" data-toggle="dropdown" *ngIf="logged">
+                        <a class="nav-link text-light font-weight-bold px-3 dropdown-toggle" href="#"
+                            id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: whitesmoke;">
+                            <i class="bi bi-person "></i> {{user.userName | uppercase}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" [routerLink]="['/account']">
+                                <i class="bi bi-bag"></i> Your Account</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['/orders']">
+                                <i class="bi bi-bag"></i> Your Orders</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['/cart/']">
+                                <i class="bi bi-bag"></i> Your Cart</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" routerLink="['/home']" (click)="logout()">
+                                <i class="bi bi-person"></i> Logout</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <!-- Search bar -->
+                <form class="form-inline ml-3 d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light ml-2" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+
+            </div>
+        </div>
+
+    </nav>
+</header>

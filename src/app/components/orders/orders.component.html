@@ -1,0 +1,101 @@
+<!--This HTML file contains the design of order page
+@Author S.Swetha, Shruti Sunil Mayekar 
+@Version 12.0.2
+-->
+
+<div class="container">
+    <section class="main">
+        <div class="header">
+            <h1>Your Orders</h1>
+        </div>
+        <div class="box">
+            <div class="list">
+                <hr />
+                <div class="list items" *ngFor="let order of orders">
+                    <div *ngIf="order.orderStatus.toLowerCase()!='in_cart'">
+                        <div class="row order-head">
+                            <div class="item col col-12 col-md-4">
+                                <span class="d-inline">
+                                    <strong>Order Id :</strong>
+                                </span>
+                                {{order.orderId}}
+                            </div>
+                            <div class="item col col-12 col-md-4">
+                                <span class="d-inline">
+                                    <strong>Total Price :</strong>
+                                </span>
+                                {{order.transactions.price|currency : "INR" : "symbol"}}
+                            </div>
+                            <div class="item col col-12 col-md-4">
+                                <strong>Date:</strong>
+                                {{order.placedAt.substr(0,10)}}
+                            </div>
+                        </div>
+                        <div *ngFor="let item of order.orderItems">
+                            <div class="row">
+                                <div class="col col-12 col-sm-4">
+                                    <div class="row">
+                                        <div class="col col-12 item d-block item-name">
+                                            <div title="View Product" (click)="specification(item.product.modelNo)">
+                                                <img class="order-item-img" [src]="item.product.images[0]" alt="">
+                                                <br />
+                                                {{item.product.name}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-sm-8 item">
+                                    <div class="row">
+                                        <div class="col col-12 col-md-3 item">
+                                            <span><strong>Price:</strong></span>{{item.boughtAtPrice|currency: "INR":"symbol"}}
+                                        </div>
+                                        <div class="col col-12 col-md-3 item">
+                                            <span><strong>Qty:</strong></span>{{item.quantity}}
+                                        </div>
+                                        <div class="item col col-12 col-md-3">
+                                            <span class="d-inline d-md-none">
+                                                <strong>Status :</strong>
+                                            </span>
+                                            <span class="{{order.orderStatus.toLowerCase()}}"><strong>{{order.orderStatus.toLowerCase()=='in_transit'?'Shipped':order.orderStatus.toLowerCase()}}
+                                                </strong> </span>
+                                        </div>
+                                        <div class="item col col-6 col-md-3 d-none d-md-flex">
+                                            <div class="row">
+                                                <div class="col col-12">
+                                                    <p class="centered">{{order.address.address}}</p>
+                                                </div>
+                                                <div class="col col-12 d-md-flex centered">
+                                                    <button class="alert-info card">{{order.address.type}}</button>
+                                                </div>
+                                                <div class="col col-12 d-md-none d-lg-flex item">
+                                                    <span class=""><strong>City : </strong></span>{{order.address.city}}
+                                                </div>
+                                                <div class="col col-12 d-md-none d-lg-flex item">
+                                                    <span><strong>State : </strong></span>{{order.address.state}}
+                                                </div>
+                                                <div class="col col-12">
+                                                    <span><strong>PIN : </strong></span>{{order.address.pincode}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-block">
+                                <hr />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="orders.length==0">
+                <p>You don't have any orders yet</p>
+                <hr />
+            </div>
+        </div>
+        <div>
+            <p><button class="btn btn-success" [routerLink]="['/products']">Continue Shopping!</button></p>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,56 @@
+<!-- This HTML file describes the  success component to show the successfully placed order details
+* @author S.Swetha, Shruti Sunil Mayekar 
+* @version 12.0.2
+--> 
+
+<div>
+    <div class="block">
+        <div class="checkboxcontainer">
+            <span class="checkmark"></span>
+        </div>
+        <h1 class="order">Order Placed Successfully!</h1>
+
+        <div class="box">
+            <div>
+                <span class="id">Name:</span>
+                <span class="p">{{ user.userName | titlecase }}</span>
+            </div>
+            <div *ngIf="user.phoneNo!=null">
+                <span class="id">Phone:</span>
+                <span class="p">(+91) {{ user.phoneNo }}</span>
+            </div>
+            <h3 class="we">We are processing your order , here are the details.</h3>
+        </div>
+        <hr class="solid">
+
+        <div class="order-details">
+                <div class="grey">
+                    <strong>Order Id:</strong><span>{{order.orderId}}</span>
+                </div>
+				<div *ngFor="let item of order.orderItems; index as i">
+					<div class="grey">
+						<strong>Product #{{ i + 1}}:</strong><span>{{ item.product.name }} x {{ item.quantity }}</span>
+					</div>
+					<div class="grey">
+						<strong>Price:</strong><span>{{ item.boughtAtPrice }}</span>
+					</div>
+				</div>
+                <div class="grey">
+                    <strong>Order placed at:</strong><span>{{date | date: 'dd/MM/yyyy'}}</span>
+                </div>
+                <div class="grey">
+                    <strong>Payment Method:</strong><span>Credit card</span>
+                </div>
+            
+        </div>
+
+        <div class="box">
+            <h3 class="email">We will email you at <span> {{user.email}} </span> for an order confirmation with details.
+            </h3>
+            <button type="button" class="btn btn-info button px-2 mx-2" routerLink="/home">Back to Home</button>
+            <button type="button" class="btn btn-info button px-2 mx-2" routerLink="/products">Continue
+                Shopping</button>
+        </div>
+
+    </div>
+</div>
